@@ -1,0 +1,16 @@
+<div class="min-h-screen w-full bg-gray-900">
+  <div class="max-w-5xl w-full mx-auto p-8 grid grid-cols-4 gap-8"> 
+    <% @songs.each do |song| %>
+      <div class="w-full "> 
+        <%= image_tag(song.image, class: "h-40 w-full object-cover rounded-lg") %>
+        <div class="flex justify-between">
+          <div class="flex flex-col">
+            <p class="text-xl text-gray-100"> <%= song.title %> </p>
+            <p class="text-sm text-gray-200"> <%= song.artist.stage_name %> </p>
+          </div>
+          <%= render "play", song: song %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

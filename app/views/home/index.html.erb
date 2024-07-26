@@ -1,0 +1,18 @@
+<div class="w-full min-h-screen bg-gradient-to-b from-blue-800 to-purple-300 flex flex-col items-center pt-36">
+  <h1 class="font-bold text-7xl text-blue-200">Spotify-Rails</h1>
+  <p class="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-green-500 via-30% to-yellow-500 mt-2">The new best music streaming platform that pays fairly!</p>
+  <div class="h-36 flex items-center justify-center">
+    <%= link_to music_path do %>
+      <%= image_tag "play.png", class: "w-20 object-cover hover:bg-pink-500 rounded-full overflow-hidden" %>
+    <% end %>
+  </div>
+  <div class="grid grid-cols-3 gap-8 max-w-5xl w-full mx-auto">
+    <%= image_tag "violin.jpg", class: "h-96 w-full object-cover" %>
+    <%= image_tag "dj.jpg", class: "h-96 w-full object-cover" %>
+    <%= image_tag "lady.jpg", class: "h-96 w-full object-cover" %>
+  </div>
+
+  <br/>
+  
+  <%= link_to "Sign up as an artist", new_artist_registration_path, class: "text-xl text-indigo-100" %>
+</div>

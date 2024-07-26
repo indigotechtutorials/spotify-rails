@@ -1,0 +1,11 @@
+<div class="w-full min-h-screen flex flex-col items-center pt-32">
+  <div class="max-w-5xl w-full">
+    <h1 class="text-5xl text-gray-100"> Welcome to the Artist Dashboard </h1>
+    <div class="flex gap-4 mt-8">
+      <%= link_to "Post a song", new_song_path, class: "p-2 rounded-lg bg-purple-500 text-purple-100" %>
+      <%= link_to "View your songs", songs_path, class: "p-2 rounded-lg bg-blue-500 text-blue-100" %>
+      <%= link_to "edit your account", edit_artist_registration_path, class: "p-2 rounded-lg bg-green-500 text-green-100" %>
+      <%= link_to "Sign out", destroy_artist_session_path, class: "p-2 rounded-lg bg-pink-500 text-pink-100", data: { turbo_method: :delete }  %>
+    </div>
+  </div>
+</div>
