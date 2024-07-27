@@ -1,0 +1,26 @@
+<div class="w-full h-14 fixed top-0 bg-indigo-900">
+  <div class="max-w-5xl w-full mx-auto px-8 h-full flex justify-between items-center">
+    <%= link_to "Home", "/music", class: "text-lg text-white" %>
+    <div class="flex gap-4 h-full items-center">
+      <% if current_user %>
+        <div class="relative" data-controller="dropdown" data-action="click@window->dropdown#closeIfOutside">
+          <%= link_to "#", data: { action: "dropdown#toggle" } do %>
+            <div class="w-8 h-8 rounded-full bg-indigo-700 p-1"> 
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+            </div>
+          <% end %>
+
+          <div class="w-40 h-40 bg-gray-400 rounded-lg absolute top-10 hidden flex flex-col items-center justify-between p-2" data-dropdown-target="menu"> 
+            <%= link_to "Settings", edit_user_registration_path, class: "text-xl text-white" %>
+            <%= link_to "Sign out", destroy_user_session_path, class: "bg-red-500 text-red-50 p-2 rounded-lg", data: { turbo_method: :delete } %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: "text-white" %>
+        <%= link_to "Create account", new_user_registration_path, class: "bg-gray-500 p-2 text-gray-50 rounded-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>

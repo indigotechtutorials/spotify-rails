@@ -1,5 +1,5 @@
-<div class="h-20 w-full bg-gray-700 flex items-center gap-4" data-controller="audio-player" data-action="music:toggled@window->audio-player#updatePlayButton">
-  <%= image_tag(song.image, class: "w-20 h-full object-cover") %>
+<div class="h-20 w-full bg-gray-700 flex items-center justify-center gap-4" data-controller="audio-player" data-action="music:toggled@window->audio-player#updatePlayButton">
+  <%= image_tag(song.image, class: "w-20 h-full object-cover p-2") %>
   <p class="text-lg text-white"> <%= song.title %> </p>
   
   <%= link_to "", data: { action: "audio-player#toggle" } do %>

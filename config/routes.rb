@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   devise_for :artists
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,6 +11,10 @@ Rails.application.routes.draw do
     root 'artists#dashboard', as: :authenticated_artist_root
     resources :songs
     resource :dashboard, to: "artists#dashboard"
+  end
+
+  authenticated :user do
+    root 'music#show', as: :authenticated_user_root
   end
 
   resource :music, only: [:show], controller: :music do
