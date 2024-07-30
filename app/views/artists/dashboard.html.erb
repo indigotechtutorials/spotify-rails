@@ -6,6 +6,21 @@
       <%= link_to "View your songs", songs_path, class: "p-2 rounded-lg bg-blue-500 text-blue-100" %>
       <%= link_to "edit your account", edit_artist_registration_path, class: "p-2 rounded-lg bg-green-500 text-green-100" %>
       <%= link_to "Sign out", destroy_artist_session_path, class: "p-2 rounded-lg bg-pink-500 text-pink-100", data: { turbo_method: :delete }  %>
+      <% if current_artist.payouts_enabled? %>
+        <span class="bg-gradient-to-r from-green-600 to-blue-400 text-green-100 p-2 rounded-full"> 💰 Payments Enabled </span>
+      <% end %>
     </div>
+
+    <br/>
+
+    <% if current_artist.payouts_enabled? %>
+      <div class="flex flex-col items-center justify-center h-56 w-1/2 bg-gray-100 rounded-lg shadow-lg pb-8">
+        <p> Your current balance ( Payouts happen daily ) </p>
+        <p class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-400"> <%= number_to_currency(@balance.available[0].amount / 100) %> </p>
+      </div>
+    <% else %>
+      <div data-controller="stripe-onboarding" data-stripe-onboarding-url-value="<%= onboarding_session_path %>" class="bg-gray-100"> 
+      </div>
+    <% end %>
   </div>
 </div>
